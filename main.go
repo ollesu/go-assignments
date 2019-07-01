@@ -10,5 +10,12 @@ func main() {
 	for i := 0; i < 11; i++ {
 		ints[i] = i
 	}
-	fmt.Println(ints)
+
+	for _, num := range ints {
+		if num%2 == 0 {
+			fmt.Println(num, "is even")
+		} else {
+			fmt.Println(num, "is odd")
+		}
+	}
 }
