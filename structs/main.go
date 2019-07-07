@@ -26,18 +26,13 @@ func main() {
 		},
 	}
 	// this points to the actual address of the harry person so that it gets properly updated
-	harryPointer := &harry
-	harryPointer.updateName("Ron")
+	// not referencing directly to the struct, but the memory address
+	// harryPointer := &harry
+	// harryPointer.updateName("Ron")
 
+	// shortcut as Go can automatically turn var of person type into pointer of person:
+	harry.updateName("Ron")
 	harry.printInfo()
-}
-
-func (pointerToPerson *person) updateName(newFirstName string) {
-	(*pointerToPerson).firstName = newFirstName
-}
-
-func (p person) printInfo() {
-	fmt.Printf("%+v", p)
 }
 
 // as soon as you create a struct person, Go will go and try to find some space on your local
@@ -46,5 +41,15 @@ func (p person) printInfo() {
 // Go is a pass by value language. Whenever we pass some value into a func, Go will take it
 // and copy all of this updated data into a NEW empty container.
 
-// & - give me actual memory address of the value of this struct/variable
-// * - give me the actual value of this memory that address is pointing at
+// &variable - give me actual memory address of the value of this struct/variable
+// *pointer - give me the actual value of this memory that address is pointing at
+
+// *person - this a description of a data type - i.e. a type of person pointer
+// this means updateName func can only be called with a type of person pointer
+func (pointerToSomething *person) updateName(newFirstName string) {
+	(*pointerToSomething).firstName = newFirstName
+}
+
+func (p person) printInfo() {
+	fmt.Printf("%+v", p)
+}
