@@ -24,3 +24,13 @@ func main() {
 // --> need to lock a variable for only one use at the same time 
 
 // goroutine - each concurrently executing activity 
+
+// 1. newRequest(type, path)
+// 2. if error-statement
+// 3. set header for the request
+// 4. http.HandlerFunc?? to initialise a handler?
+// 5. serveHTTP takes response writer (http.ResponseWriter) and request (*http.Request) as arguments
+
+// Go's HTTP takes an address to listen on and a handler (created by serveHTTP func)
+
+// difference between ListenAndServe and other func 
