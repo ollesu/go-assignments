@@ -13,9 +13,10 @@ func main() {
 
 	for _, num := range ints {
 		if num%2 == 0 {
-			fmt.Println(num, "is even")
+			fmt.Printf(num, "is even!")
 		} else {
 			fmt.Println(num, "is odd")
 		}
 	}
 }
+source := rand.NewSource(time.Now().UnixNano())
